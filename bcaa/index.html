@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembukaan Rekening BCA Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pembukaan Rekening BCA Online</h1>
+        <div id="form-container">
+            <div id="form-step-1" class="form-step active">
+                <h2>Buka Rekening Baru</h2>
+                <button onclick="nextStep(2)">Mulai</button>
+            </div>
+            <div id="form-step-2" class="form-step">
+                <h2>Apakah Anda Sudah Memiliki Rekening BCA Saat Ini?</h2>
+                <label for="nama_lengkap">Nama Lengkap:</label>
+                <input type="text" id="nama_lengkap" name="nama_lengkap">
+                <div class="radio-container">
+                    <input type="radio" id="existing_account_ya" name="existing_account" value="YA">
+                    <label for="existing_account_ya" class="radio-button-label">YA</label>
+                    <input type="radio" id="existing_account_tidak" name="existing_account" value="TIDAK">
+                    <label for="existing_account_tidak" class="radio-button-label">TIDAK</label>
+                </div>
+                <button onclick="nextStep(3)">Lanjut</button>
+            </div>
+            <div id="form-step-3" class="form-step">
+                <h2>Pilih Jenis Rekening</h2>
+                <button onclick="setRekening('TAHAPAN'); nextStep(4)">TAHAPAN</button>
+                <button onclick="setRekening('XPRESI'); nextStep(4)">XPRESI</button>
+            </div>
+            <div id="form-step-4" class="form-step">
+                <h2>Buat Kode Akses</h2>
+                <input type="text" id="kode_akses" maxlength="6">
+                <button onclick="nextStep(5)">Lanjut</button>
+            </div>
+               <div id="form-step-5" class="form-step">
+                    <h2>Upload Dokumen</h2>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <label class="custom-file-upload">
+                            <span class="file-label">Foto KTP</span>
+                            <input type="file" name="foto_ktp" id="foto_ktp">
+                            <span class="file-icon">📁</span>
+                        </label>
+                        <div class="file-preview" id="foto_ktp_preview">
+                            <img id="foto_ktp_img" src="" alt="Preview">
+                        </div>
+                        <label class="custom-file-upload">
+                            <span class="file-label">Foto Diri</span>
+                            <input type="file" name="foto_diri" id="foto_diri">
+                            <span class="file-icon">📁</span>
+                        </label>
+                        <div class="file-preview" id="foto_diri_preview">
+                            <img id="foto_diri_img" src="" alt="Preview">
+                        </div>
+                        <label class="custom-file-upload">
+                            <span class="file-label">Tanda Tangan</span>
+                            <input type="file" name="tanda_tangan" id="tanda_tangan">
+                            <span class="file-icon">📁</span>
+                        </label>
+                        <div class="file-preview" id="tanda_tangan_preview">
+                            <img id="tanda_tangan_img" src="" alt="Preview">
+                        </div>
+                        <label class="custom-file-upload">
+                            <span class="file-label">NPWP (jika ada)</span>
+                            <input type="file" name="npwp" id="npwp">
+                            <span class="file-icon">📁</span>
+                        </label>
+                        <div class="file-preview" id="npwp_preview">
+                            <img id="npwp_img" src="" alt="Preview">
+                        </div>
+                        <button type="button" onclick="nextStep(6)">Lanjut</button>
+                    </form>
+                </div>
+            <div id="form-step-6" class="form-step">
+                <h2>Tujuan Pembukaan Rekening</h2>
+                <select id="tujuan">
+                    <option value="TRANSAKSI">Transaksi</option>
+                    <option value="MENABUNG">Menabung</option>
+                    <option value="KEPERLUAN PRIBADI">Keperluan Pribadi</option>
+                </select>
+                <button onclick="nextStep(7)">Lanjut</button>
+            </div>
+            <div id="form-step-7" class="form-step">
+                <h2>Profil Anda</h2>
+                <label>Nama Gadis Ibu Kandung:</label><input type="text" id="nama_ibu_kandung"><br>
+                <label>Status Perkawinan:</label>
+                <select id="status_perkawinan">
+                    <option value="Belum Menikah">Belum Menikah</option>
+                    <option value="Menikah">Menikah</option>
+                    <option value="Cerai">Cerai</option>
+                </select><br>
+                <label>Agama:</label>
+                <select id="agama">
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Budha">Budha</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select><br>
+                <label>Status Tempat Tinggal:</label>
+                <select id="status_tempat_tinggal">
+                    <option value="Milik Sendiri">Milik Sendiri</option>
+                    <option value="Sewa">Sewa</option>
+                    <option value="Kost">Kost</option>
+                </select><br>
+                <button onclick="nextStep(8)">Lanjut</button>
+            </div>
+            <div id="form-step-8" class="form-step">
+                <h2>Informasi Pekerjaan</h2>
+                <label>Nama Perusahaan:</label><input type="text" id="nama_perusahaan"><br>
+                <label>Jabatan:</label><input type="text" id="jabatan"><br>
+                <label>Bidang Usaha:</label><input type="text" id="bidang_usaha"><br>
+                <label>Alamat Kantor:</label><input type="text" id="alamat_kantor"><br>
+                <label>Kota:</label><input type="text" id="kota"><br>
+                <label>Kode Pos:</label><input type="text" id="kode_pos"><br>
+                <label>Telepon Kantor:</label><input type="text" id="telepon_kantor"><br>
+                <button onclick="nextStep(9)">Lanjut</button>
+            </div>
+            <div id="form-step-9" class="form-step">
+                <h2>Fasilitas Produk</h2>
+                <div id="paspor_options"></div>
+                <button onclick="nextStep(10)">Lanjut</button>
+            </div>
+            <div id="form-step-10" class="form-step">
+                <h2>Pilih Kantor Cabang</h2>
+                <select id="kantor_cabang">
+                    <option value="BCA KCP JEMBATAN DUA">BCA KCP JEMBATAN DUA</option>
+                    <option value="BCA KCU PLUIT">BCA KCU PLUIT</option>
+                </select>
+                <button onclick="nextStep(11)">Lanjut</button>
+            </div>
+            <div id="form-step-11" class="form-step">
+                <h2>Review Data Anda</h2>
+                <div id="review_data"></div>
+                <button onclick="nextStep(12)">Lanjut</button>
+            </div>
+            <div id="form-step-12" class="form-step">
+                <h2>Buat PIN ATM</h2>
+                <label for="pin">PIN ATM:</label>
+                <input type="password" id="pin" name="pin" maxlength="6">
+                <button onclick="submitForm()">Submit</button>
+            </div>
+            <div id="form-step-13" class="form-step">
+                <h2>Rekening Berhasil Dibuat</h2>
+                <div class="atm-card">
+                    <div class="atm-card-content">
+                        <div class="atm-card-name" id="atm-card-name"></div>
+                        <div class="atm-card-number" id="atm-card-number"></div>
+                    </div>
+                </div>
+                <p>No. Rekening: <span id="account-number"></span></p>
+                <button onclick="completeRegistration()">Selesai</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

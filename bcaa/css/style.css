@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('background.jpg'); /* Ganti 'background.jpg' dengan nama file gambar yang sesuai */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* Menambahkan transparansi untuk container */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"], input[type="password"], select {
+    width: calc(100% - 20px); /* Menyesuaikan lebar input dengan padding */
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus {
+    outline: none;
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk radio option */
+.radio-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.radio-button-label {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.radio-button-label:hover {
+    background-color: #f0f0f0;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + .radio-button-label::before {
+    
+    
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    vertical-align: middle;
+    transition: background-color 0.3s ease;
+}
+
+input[type="radio"]:checked + .radio-button-label::before {
+    background-color: #007bff;
+}
+
+input[type="radio"]:checked + .radio-button-label {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.atm-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    height: 180px;
+    position: relative;
+    margin: 20px 0;
+    overflow: hidden; /* Memastikan konten di dalam kartu tidak melebihi batas */
+}
+
+.atm-card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparansi untuk konten di dalam kartu */
+}
+
+.atm-card-name {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.atm-card-number {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+.custom-file-upload {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 15px;
+            width: 90%; /* Menyesuaikan lebar */
+        }
+        .custom-file-upload:hover {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .custom-file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        .file-icon {
+            width: 40px; /* Ukuran ikon diperbesar menjadi 40px */
+            margin-left: 10px; /* Jarak dari teks label */
+            display: block; /* Pastikan ikon file tampil */
+        }
+        .file-label {
+            margin-right: 10px; /* Jarak dari ikon file */
+            flex: 1; /* Membuat teks rata tengah */
+            text-align: left; /* Posisi teks sesuai keinginan */
+        }
+        .file-preview {
+            width: 100px; /* Ukuran kontainer preview gambar */
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: 20px; /* Jarak dari tombol */
+            display: none; /* Sembunyikan preview awalnya */
+        }
+        .file-preview img {
+            max-width: 100%;
+            height: auto;
+        }
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
